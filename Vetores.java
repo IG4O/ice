@@ -43,7 +43,7 @@ public class Vetores {
         }
         System.out.println();
 
-        System.out.println("/////////////////////////////////// ");
+        System.out.println("[Vetor Novo String]/////////////////////////////////// ");
 
         /***** [Vetor Novo String] ******/ 
 
