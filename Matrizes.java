@@ -1,32 +1,64 @@
-import java.util.Scanner;
-
 public class Matrizes {
-    //public static Scanner entrada = new Scanner(System.in);
     public static int linhas = 5;
     public static int colunas = 5;
 
-    public static void main(String[] args){
-            
-        // int [][] matriz;
-        // int i,j, valor;
+     /**
+     * @param matriz 
+     * Funcao que imprime uma matriz inteira
+     */
+    public static void imprimirMatrizInt(int[][] matriz){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+    }
 
-        // int n_linhas = 4, n_colunas = 4;
+    /**
+     * @param matriz 
+     * Funcao que imprime uma matriz real
+     */
+    public static void imprimirMatrizFloat(Float[][] matriz){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }        
+    }
 
-        // matriz = new int[n_linhas][n_colunas];
+    /**
+     * @param matriz 
+     * Funcao que imprime uma matriz inteira
+     */
+    public static void imprimirMatrizBool(Boolean[][] matriz){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+    }
 
-        // for (i = 0; i < n_linhas;i++){
+    /**
+     * @param matriz 
+     * Funcao que imprime uma matriz inteira
+     */
+    public static void imprimirMatrizString(String[][] matriz){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+    }
 
-        //     System.out.println("Digite linha: ");
-        //     valor = entrada.nextInt();
-        //     i = valor;
-
-        //     for(j = 0; j < n_colunas;j++){
-        //         System.out.println("Digite coluna: ");
-        //         valor = entrada.nextInt();
-        //         j = valor;
-        //     }
-        // }
-
+    public static void main(String[] args) {
+        
         System.out.println("[matrizNovaInt]");
         int[][] matrizInt = matrizNovaInt(colunas, linhas);
         imprimirMatrizInt(matrizInt);
@@ -49,31 +81,40 @@ public class Matrizes {
         String[][] matrizString = matrizNovaString(colunas, linhas);
         imprimirMatrizString(matrizString);
 
+        System.out.println();///////////////////////
+
+        System.out.println("[matrizPrintInt]");
+        int[][] matrizExemploInt = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        matrizPrintInt(matrizExemploInt);
+
+        System.out.println();///////////////////////
+
+        System.out.println("[matrizPrintString]");
+        String[][] matrizExemploString = {
+            {"A", "B", "C"},
+            {"D", "E", "F"},
+            {"G", "H", "I"}
+        };
+
+        matrizPrintString(matrizExemploString);
+
+        System.out.println();///////////////////////
+
+        System.out.println("[matrizPrintFloat]"); 
+        Float[][] matrizExemploFloat = {
+            {(float)1,(float) 2,(float) 3},
+            {(float)4,(float) 5,(float) 6},
+            {(float)7,(float) 8,(float) 9}
+        };
+
+        matrizPrintFloat(matrizExemploFloat);
 
     }
-
-    // public static int [][] matrizLeitura(int n_linhas, int n_colunas){
-    //     int [][] matriz = new int[n_linhas][n_colunas];
-    //     int i, j;
-    //     System.out.printf("Entre com os valores da matriz", n_linhas*n_colunas);
-
-    //     for (i=0;i<n_linhas;i++){
-    //         for(j = 0; j<n_colunas;j++){
-    //             matriz [i][j] = entrada.nextInt();
-    //         }
-    //     }
-    //     return matriz;
-    // }
-
-    // public static void matrizPrint(int [][]matriz){
-    //     for (int i = 0; i<matriz.length; i++){
-    //         for (int j=0; j<matriz[0].length;j++){
-    //             System.out.printf("%d",matriz[i][j]);                
-    //         }
-    //         System.out.println();
-    //     }
-    // }
-
 
     public static int[][] matrizNovaInt(int colunas, int linhas){
         // i = colunas , j = linhas
@@ -131,60 +172,32 @@ public class Matrizes {
         return matrizString;
     }
 
+/////////////////////////////////////////
 
-    /**
-     * @param matriz 
-     * Funcao que imprime uma matriz inteira
-     */
-    public static void imprimirMatrizInt(int[][] matriz){
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j] + " ");
+    public static void matrizPrintInt(int[][] matrizInt){
+        for (int i = 0; i<matrizInt.length; i++){
+            for (int j=0; j<matrizInt[0].length;j++){
+                System.out.printf("%d ",matrizInt[i][j]);                
             }
-            System.out.println();
+            System.out.println();    
         }
-        
     }
 
-    /**
-     * @param matriz 
-     * Funcao que imprime uma matriz real
-     */
-    public static void imprimirMatrizFloat(Float[][] matriz){
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j] + " ");
+    public static void matrizPrintString(String[][] matrizString){
+        for (int i = 0; i<matrizString.length; i++){
+            for (int j=0; j<matrizString[0].length;j++){
+                System.out.printf("%s ",matrizString[i][j]);                
             }
-            System.out.println();
-        }        
-    }
-
-    /**
-     * @param matriz 
-     * Funcao que imprime uma matriz inteira
-     */
-    public static void imprimirMatrizBool(Boolean[][] matriz){
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j] + " ");
-            }
-            System.out.println();
+            System.out.println();    
         }
-        
     }
 
-    /**
-     * @param matriz 
-     * Funcao que imprime uma matriz inteira
-     */
-    public static void imprimirMatrizString(String[][] matriz){
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j] + " ");
+    public static void matrizPrintFloat(Float[][] matrizString){
+        for (int i = 0; i<matrizString.length; i++){
+            for (int j=0; j<matrizString[0].length;j++){
+                System.out.printf("%.1f ",matrizString[i][j]);                
             }
-            System.out.println();
+            System.out.println();    
         }
-        
     }
-
 }
