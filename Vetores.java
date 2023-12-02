@@ -1,14 +1,6 @@
 public class Vetores {
-
-    public static int qtdElementos;
-
     public static void main(String[] args) {        
-
-        /***** [Vetor Novo Int] ******/
-
-        System.out.print("[Vetor Novo Int]/////////////////////////////////// ");
-
-        qtdElementos = 5;
+        int qtdElementos = 5;
         
         int[] vetorInt = vetorNovoInt(qtdElementos);
 
@@ -17,46 +9,40 @@ public class Vetores {
         }
         System.out.println();
 
-        System.out.print("[Vetor Novo Float]/////////////////////////////////// ");
+        System.out.println("-------------------------------");
 
-        /***** [Vetor Novo Float] ******/ 
+        int[] vetorPrintInt = {1, 2, 3, 4, 5, 6, 7, 8};
 
-        qtdElementos = 5;
+        vetorPrintInt(vetorPrintInt);
+
+        System.out.println("-------------------------------");
+
+        boolean[] vetorboolean = {true, false, true, false};
+
         
-        Float[] vetorFloat = vetorNovoFloat(qtdElementos);
+        vetorPrintInt(vetorBooleanParaInt(vetorboolean));
 
-        for (int i = 0; i < vetorFloat.length; i++){            
-            System.out.printf("VetorFloat[%d] = %.1f \n", i, vetorFloat[i]);            
-        }
-        System.out.println();
+        System.out.println("-------------------------------");
 
-        System.out.print("[Vetor Novo Bool]/////////////////////////////////// ");    
+        int[] vetorTeste1 = {1,1,1,1,1,1,0,1,1,1,1};
+        System.out.println(vetorValoresIguaisInt(vetorTeste1));
 
-        /***** [Vetor Novo Bool] ******/ 
+        System.out.println("-------------------------------");
 
-        qtdElementos = 5;
+        int [] vetorTeste2 = {2,2};
+        System.out.println(vetorSomaInt(vetorTeste2));
         
-        boolean[] vetorBool = vetorNovoBool(qtdElementos);
+        System.out.println("-------------------------------");
 
-        for (int i = 0; i < vetorBool.length; i++){            
-            System.out.printf("VetorBool[%d] = %b \n", i, vetorBool[i]);            
-        }
-        System.out.println();
+        int[] vetorTeste3 = {2,2,4,9,11};
+        int[] vetorTeste4 = {2,2,3,6,4};
 
-        System.out.print("[Vetor Novo String]/////////////////////////////////// ");
+        vetorPrintInt(vetorSomaVetoresInt(vetorTeste3,vetorTeste4));
 
-        /***** [Vetor Novo String] ******/ 
+        System.out.println("-------------------------------");
 
-        qtdElementos = 5;
-        
-        String[] vetorString = vetorNovoString(qtdElementos);
-
-        for (int i = 0; i < vetorBool.length; i++){            
-            System.out.printf("VetorString[%d] = %s \n", i, vetorString[i]);            
-        }
-        System.out.println();
-        
-
+        int[] vetorTeste5 = {1,3,5,7,9,4};
+        System.out.println(vetorMenorInt(vetorTeste5));
     }           
 
     /**
@@ -126,12 +112,67 @@ public class Vetores {
 
 
     public static void vetorPrintInt(int [] vetor){
-        int i;
-        for (i = 0; i < vetor.length;i++){
+        for (int i = 0; i < vetor.length;i++){
             System.out.printf("%d", vetor[i]);
         }
         System.out.println();
     }
 
+    public static int[] vetorBooleanParaInt(boolean[] vetorbool){
+        int tamanhoVetor = vetorbool.length;
+        int[] vetorInt = new int[tamanhoVetor];
+
+        for (int i = 0; i < tamanhoVetor; i++) {
+            if (vetorbool[i] == true){
+                vetorInt[i] = 1;
+            }else{
+                vetorInt[i] = 0;
+            }
+        }
+        return vetorInt;
+    }
+
+    public static boolean vetorValoresIguaisInt(int[] vetorInt){
+        int primeiroValor = vetorInt[0];
+
+        for (int i = 1; i < vetorInt.length; i++) {
+            if (vetorInt[i] != primeiroValor) {                
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    public static int vetorSomaInt(int[] v){
+        int valor, soma = 0;
+        for (int i = 0; i < v.length; i++) {
+            valor = v[i]++;
+            soma += valor;
+        }
+        return soma;
+    }
+
+    public static int[] vetorSomaVetoresInt(int[] v, int[] w){        
+        int[] z = new int[v.length];        
+        
+        for (int i = 0; i < v.length; i++) {
+            z[i] = v[i]+ w[i];             
+        }
+
+        return z;
+    }
+
+    public static int vetorMenorInt(int[] v){
+        int menorValor = v[0];
+
+        for (int i = 1; i < v.length; i++) {
+            if (v[i] < menorValor) {
+                menorValor = v[i];
+            }
+        }
+
+        return menorValor;
+    }
      
 }
