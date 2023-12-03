@@ -1,11 +1,8 @@
-public class Matrizes {
-    public static int linhas = 5;
-    public static int colunas = 5;
+import java.util.Scanner;
 
-     /**
-     * @param matriz 
-     * Funcao que imprime uma matriz inteira
-     */
+public class Matrizes {
+    public static Scanner entrada = new Scanner(System.in);
+
     public static void imprimirMatrizInt(int[][] matriz){
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
@@ -16,74 +13,16 @@ public class Matrizes {
         
     }
 
-    /**
-     * @param matriz 
-     * Funcao que imprime uma matriz real
-     */
-    public static void imprimirMatrizFloat(Float[][] matriz){
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j] + " ");
-            }
-            System.out.println();
-        }        
-    }
-
-    /**
-     * @param matriz 
-     * Funcao que imprime uma matriz inteira
-     */
-    public static void imprimirMatrizBool(Boolean[][] matriz){
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j] + " ");
-            }
-            System.out.println();
-        }
-        
-    }
-
-    /**
-     * @param matriz 
-     * Funcao que imprime uma matriz inteira
-     */
-    public static void imprimirMatrizString(String[][] matriz){
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j] + " ");
-            }
-            System.out.println();
-        }
-        
-    }
-
     public static void main(String[] args) {
+        int linhas = 5;
+        int colunas = 5;
         
-        System.out.println("[matrizNovaInt]");
         int[][] matrizInt = matrizNovaInt(colunas, linhas);
         imprimirMatrizInt(matrizInt);
+        
 
-        System.out.println();///////////////////////
+        System.out.println("-------------------------------");
 
-        System.out.println("[matrizNovaFloat]");
-        Float[][] matrizFloat = matrizNovaFloat(colunas, linhas);
-        imprimirMatrizFloat(matrizFloat);
-
-        System.out.println();///////////////////////
-
-        System.out.println("[matrizNovaBool]");
-        Boolean[][] matrizBool = matrizNovaBool(colunas, linhas);
-        imprimirMatrizBool(matrizBool);
-
-        System.out.println();///////////////////////
-
-        System.out.println("[matrizNovaString]");
-        String[][] matrizString = matrizNovaString(colunas, linhas);
-        imprimirMatrizString(matrizString);
-
-        System.out.println();///////////////////////
-
-        System.out.println("[matrizPrintInt]");
         int[][] matrizExemploInt = {
             {1, 2, 3},
             {4, 5, 6},
@@ -92,32 +31,41 @@ public class Matrizes {
 
         matrizPrintInt(matrizExemploInt);
 
-        System.out.println();///////////////////////
+        System.out.println("-------------------------------");
 
-        System.out.println("[matrizPrintString]");
-        String[][] matrizExemploString = {
-            {"A", "B", "C"},
-            {"D", "E", "F"},
-            {"G", "H", "I"}
-        };
+        matrizPrintInt(matrizPreencherInt(matrizExemploInt, colunas));
 
-        matrizPrintString(matrizExemploString);
+        System.out.println("-------------------------------");
 
-        System.out.println();///////////////////////
+        
+        int[][] matrizEx1 = new int[3][3];
 
-        System.out.println("[matrizPrintFloat]"); 
-        Float[][] matrizExemploFloat = {
-            {(float)1,(float) 2,(float) 3},
-            {(float)4,(float) 5,(float) 6},
-            {(float)7,(float) 8,(float) 9}
-        };
+        //matrizPrintInt(matrizLeiaInt(matrizEx1));
 
-        matrizPrintFloat(matrizExemploFloat);
+        System.out.println("-------------------------------");
+
+        // Float[][] matrizExemploFloat = {
+        //     {(float)1, (float)2, (float)3},
+        //     {(float)4, (float)5, (float)6},
+        //     {(float)7, (float)8, (float)9}
+        // };
+
+
+        matrizPrintFloat((matrizConverteIntParaFloat(matrizExemploInt)));
+
+        System.out.println("-------------------------------");
+
+        matrizPrintInt(matrizSomaInt(matrizExemploInt, matrizExemploInt));
+
+        System.out.println("-------------------------------");
+
+        
+        matrizPrintInt(matrizNovaIdentidadeInt(colunas));
+        
 
     }
-
+    //1
     public static int[][] matrizNovaInt(int colunas, int linhas){
-        // i = colunas , j = linhas
         int i, j;
 
         int[][] matrizInt = new int[colunas][linhas];
@@ -131,49 +79,7 @@ public class Matrizes {
         return matrizInt;
     }
 
-
-    public static Float[][] matrizNovaFloat(int colunas, int linhas){
-        int i, j;
-
-        Float [][] matrizFloat = new Float[colunas][linhas];
-
-        for (i = 0; i < colunas;i++){
-            for(j = 0; j < linhas; j++){
-                matrizFloat[i][j] = (float) 0;
-            }
-        }
-        return matrizFloat;
-    }
-
-
-    public static Boolean[][] matrizNovaBool(int colunas, int linhas){
-        int i, j;
-
-        Boolean [][] matrizBool = new Boolean[colunas][linhas];
-
-        for (i = 0; i < colunas;i++){
-            for(j = 0; j < linhas; j++){
-                matrizBool[i][j] = false;
-            }
-        }
-        return matrizBool;
-    }
-
-    public static String[][] matrizNovaString(int colunas, int linhas){
-        int i, j;
-
-        String [][] matrizString = new String[colunas][linhas];
-
-        for (i = 0; i < colunas;i++){
-            for(j = 0; j < linhas; j++){
-                matrizString[i][j] = "\" \"";
-            }
-        }
-        return matrizString;
-    }
-
-/////////////////////////////////////////
-
+    //2
     public static void matrizPrintInt(int[][] matrizInt){
         for (int i = 0; i<matrizInt.length; i++){
             for (int j=0; j<matrizInt[0].length;j++){
@@ -183,21 +89,75 @@ public class Matrizes {
         }
     }
 
-    public static void matrizPrintString(String[][] matrizString){
-        for (int i = 0; i<matrizString.length; i++){
-            for (int j=0; j<matrizString[0].length;j++){
-                System.out.printf("%s ",matrizString[i][j]);                
+    public static void matrizPrintFloat(Float[][] matrizFloat){
+        for (int i = 0; i<matrizFloat.length; i++){
+            for (int j=0; j<matrizFloat[0].length;j++){
+                System.out.printf("%.1f ", matrizFloat[i][j]);                
             }
             System.out.println();    
         }
     }
 
-    public static void matrizPrintFloat(Float[][] matrizString){
-        for (int i = 0; i<matrizString.length; i++){
-            for (int j=0; j<matrizString[0].length;j++){
-                System.out.printf("%.1f ",matrizString[i][j]);                
+    //3
+    public static int[][] matrizPreencherInt(int[][] matriz, int n){        
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                matriz[i][j] = n; 
             }
-            System.out.println();    
         }
+        return matriz;
     }
+
+    //4
+    public static int[][] matrizLeiaInt(int[][] matriz){
+        for (int i = 0; i < matriz.length; i++) {            
+            for (int j = 0; j < matriz[0].length; j++) {
+                matriz[i][j] = entrada.nextInt();
+            }
+        }
+        entrada.close();
+        return matriz;
+    }
+
+    //9
+    public static Float[][] matrizConverteIntParaFloat(int[][] matriz){
+        Float[][] matrizFloat = new Float[matriz.length][matriz.length];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                matrizFloat[i][j] = (float)matriz[i][j];
+            }
+        }
+        return matrizFloat;
+    }
+
+    //Operacoes matematicas
+    //1
+    public static int[][] matrizSomaInt(int[][] A, int[][] B){
+        int[][] C = new int[A.length][B.length];
+
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < B[0].length; j++) {
+                C[i][j] = A[i][j] + B[i][j];
+            }
+        }
+        return C;
+    }
+    
+    //4
+    public static int[][] matrizNovaIdentidadeInt(int ordem){
+        int[][] matriz_identidade = new int[ordem][ordem];
+
+        for (int i = 0; i < ordem; i++) {
+            for (int j = 0; j < ordem; j++) {
+                if(i == j){
+                    matriz_identidade[i][j] = 1;
+                } else {
+                    matriz_identidade[i][j] = 0;
+                }
+            }
+        }
+        return matriz_identidade;
+    }
+
+
 }
