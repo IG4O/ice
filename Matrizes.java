@@ -62,7 +62,16 @@ public class Matrizes {
         
         matrizPrintInt(matrizNovaIdentidadeInt(colunas));
         
+        System.out.println("-------------------------------");
 
+        int[][] m1 = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        
+        boolean iguais = matrizesComparacaoInt(matrizEx1, m1);
+        System.out.println(iguais);
     }
     //1
     public static int[][] matrizNovaInt(int colunas, int linhas){
@@ -119,6 +128,23 @@ public class Matrizes {
         return matriz;
     }
 
+    //6
+    public static boolean matrizesComparacaoInt(int[][] A, int[][] B){
+
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < A[0].length; j++) {
+                if (A[i][j] != B[i][j]) {
+                    
+                    return false;
+                }
+            }
+        }
+
+        return true;
+
+    }
+
+
     //9
     public static Float[][] matrizConverteIntParaFloat(int[][] matriz){
         Float[][] matrizFloat = new Float[matriz.length][matriz.length];
@@ -129,6 +155,8 @@ public class Matrizes {
         }
         return matrizFloat;
     }
+
+
 
     //Operacoes matematicas
     //1
