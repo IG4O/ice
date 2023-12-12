@@ -72,6 +72,10 @@ public class Matrizes {
         
         boolean iguais = matrizesComparacaoInt(matrizEx1, m1);
         System.out.println(iguais);
+
+        System.out.println("-------------------------------");
+
+        matrizPrintInt(matrizPermutacaoLinhasInt(m1, 0, 2));
     }
     //1
     public static int[][] matrizNovaInt(int colunas, int linhas){
@@ -185,6 +189,16 @@ public class Matrizes {
             }
         }
         return matriz_identidade;
+    }
+
+
+    public static int[][] matrizPermutacaoLinhasInt(int[][] matriz, int linha1, int linha2) {
+
+        int[] temp = matriz[linha1];
+        matriz[linha1] = matriz[linha2];
+        matriz[linha2] = temp;
+
+        return matriz;
     }
 
 
